@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative AI App</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+  <div class="container">
+    <input type="text" placeholder="Enter your message" id="userInput">
+    <button id="generateButton">Generate</button>
+    <p id="response"></p>
+    <p id="error"></p>
+  </div>
+
+  <script>
+    const button = document.querySelector("#generateButton");
+
+    button.addEventListener("click", async () => {
+      const input = document.querySelector("#userInput").value;
+      const responseParagraph = document.querySelector("#response");
+      const errorParagraph = document.querySelector("#error");
+
+      try {
+        const response = await fetch("http://localhost:3000/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userMessage: input }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch response from server.");
+        }
+
+        const data = await response.json();
+        responseParagraph.textContent = data.response;
+        errorParagraph.textContent = ''; // Clear any previous error
+      } catch (error) {
+        console.error("Error:", error);
+        responseParagraph.textContent = '';
+        errorParagraph.textContent = "Error: Unable to generate response.";
+      }
+    });
+  </script>
+</body>
+</html>

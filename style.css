@@ -1,0 +1,87 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container for the Form */
+  .container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Input Field */
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+  }
+  
+  button:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Response Text */
+  #response {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  /* Error Handling Text */
+  #error {
+    color: #ff5252;
+    font-size: 1.2em;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    input[type="text"] {
+      font-size: 1em;
+    }
+  
+    button {
+      font-size: 1em;
+    }
+  }
+  
